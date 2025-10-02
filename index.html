@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivian Gomes | Portifólio Pessoal</title>
-    <meta name="description" content="Portfólio pessoal de Vivian Gomes, estudante de Engenharia da Computação.">
+    <meta name="description" content="Portifólio pessoal de Vivian Gomes, estudante de Engenharia da Computação.">
 
     <!-- Favicon -->
     <link rel="icon" href="./assets/images/dev-semfundo.png">
@@ -13,12 +13,511 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 <body>
-    
+    <!-- Tela de Carregamento -->
+     <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+     <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="logo-link">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-name">Vivian Gomes</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+
+                <a href="#sobre" class="nav-link" data-section="sobre">
+                    <i class="fas fa-user"></i>
+                    <span>Sobre</span>
+                </a>
+
+                <a href="#formacao" class="nav-link" data-section="formacao">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Formação</span>
+                </a>
+
+                <a href="#projetos" class="nav-link" data-section="projetos">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Projetos</span>
+                </a>
+
+                <a href="#contato" class="nav-link" data-section="contato">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contato</span>
+                </a>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>    
+        </div>
+     </nav>
+
+    <!-- Main Content -->
+     <main>
+        <!-- Início -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="greeting">
+                            <span>Olá, eu sou</span>
+                        </div>
+                        <h1 class="hero-name">
+                            <span class="primeiro-nome">Vivian</span>
+                            <span class="sobrenome">Gomes</span>
+                        </h1>
+                        <div class="hero-title">
+                            <span>Estudante de </span>
+                            <span class="typed-text"></span>
+                            <span class="cursor">|</span>
+                        </div>
+                        <p class="hero-description">
+                            Apaixonada por tecnologia e desenvolvimento backend, 
+                            explorando Java e Spring Boot para transformar 
+                            ideias em soluções que realmente façam diferença
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#sobre" class="btn btn-primary">
+                                <span>Conheça mais</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#contato" class="btn btn-secondary">
+                                <span>Entre em contato comigo</span>
+                                <i class="fas fa-paper-plane"></i>    
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <div class="image-background"></div>
+                            <div class="profile-image">
+                                <img src="./assets/images/gomesz-imagem.png" alt="Imagem de Vivian Gomes" class="profile-image">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="floating-elements">
+                                <div class="floating-elements java-icon">
+                                    <img src="./assets/images/Icon - Java.png" alt="Ícone Java" class="java-icon">
+                                </div>
+                                <div class="floating-elements database-icon">
+                                    <img src="./assets/images/Icon - Banco de dados.png" alt="Ícone Banco de Dados" class="database-icon">
+                                </div>
+                                <div class="floating-elements springboot-icon">
+                                    <img src="./assets/images/Icon - Spring Boot.png" alt="Ícone Spring Boot" class="springboot-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            
+                <!--Role para baixo - Scroll Indicador-->
+                <div class="scroll-indicator">
+                    <span>Role para baixo</span>
+                    <div class="scroll-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <!-- Sobre mim-->
+         <section id="sobre" class="sobre-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="sobre-content">
+                    <div class="sobre-text">
+                        <div class="sobre-intro">
+                            <p>
+                               Sou técnica em Eletromecânica e estudante do 5º semestre de <strong>Engenharia da Computação</strong>, 
+                               com foco em <strong>desenvolvimento back-end</strong> e projetos aplicados à tecnologia. 
+                            </p>
+                            <p>
+                                Grande parte dos meus projetos acadêmicos são inspirados em problemas reais e alinhados 
+                                aos <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong>. Essa abordagem me desafia a pensar 
+                                em soluções práticas, com impacto social e ambiental.
+                            </p>
+                            <p>
+                                Além disso, sou apaixonada por jogos de <strong>automação</strong>, que despertaram meu interesse por processos, 
+                                lógica e sistemas. Hoje, estou em busca de uma oportunidade de <strong>estágio</strong> para aplicar esse 
+                                conhecimento na prática e seguir evoluindo profissionalmente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="sobre-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">Projetos Concluídos</div>
+                        </div>
+                        <div class="stat-item">
+                                <div class="stat-number" data-target="3,5">0</div>
+                                <div class="stat-label">Anos Estudando</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="6">0</div>
+                            <div class="stat-label">Tecnologias</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100">0</div>
+                            <div class="stat-label">% Dedicação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </section>
+
+        <!-- Formação Acadêmica -->
+        <section id="formacao" class="formacao-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Formação</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="formacao-content">
+                    <div class="formacao-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-period">2023 - 2028</div>
+                                <h3>Engenharia da Computação</h3>
+                                <h4>Centro Universitário Jorge Amado</h4>
+                                <p>Focado em para o desenvolvimento de sistemas de software e hardware, 
+                                    com foco em programação, redes, banco de dados e arquitetura de computadores.</p>
+                                <div class="timeline-skills">
+                                    <span>Engenharia de Requisitos</span>
+                                    <span>Redes de computadores</span>
+                                    <span>POO</span>
+                                    <span>Banco de Dados</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fa-solid fa-wrench"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-period">2024</div>
+                                <h3>TI Essentials</h3>
+                                <h4>Cisco Networking Academy</h4>
+                                <p>Certificação introdutória que abrange os fundamentos da tecnologia da informação, 
+                                    incluindo hardware, software, sistemas operacionais, redes e segurança.</p>
+                                <div class="timeline-skills">
+                                    <span>Hardware</span>
+                                    <span>Segurança</span>
+                                    <span>Redes</span>
+                                    <span>Sistemas Operacionais</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <i class="fa-solid fa-bolt"></i>    
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-period">2023</div>
+                                <h3>Técnico em Eletromecânica</h3>
+                                <h4>SENAI - Ilhéus</h4>
+                                <p>Curso integrado que une conhecimentos de elétrica e mecânica para manutenção, 
+                                    operação e desenvolvimento de sistemas industriais.</p>
+                                <div class="timeline-skills">
+                                    <span>Diagramação</span>
+                                    <span>Elétrica</span>
+                                    <span>Programação Ladder</span>
+                                    <span>CLP</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="formacao-skills">
+                        <h3>Principais Competências</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <div class="skill-items">
+                                    <span class="skill-item">Java</span>
+                                    <span class="skill-item">Spring Boot</span>
+                                    <span class="skill-item">C</span>
+                                    <span class="skill-item">Python</span>
+                                    <span class="skill-item">Dart</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Banco de Dados</h4>
+                                <div class="skill-items">
+                                    <span class="skill-item">MySQL</span>
+                                    <span class="skill-item">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Ferramentas</h4>
+                                <div class="skill-items">
+                                    <span class="skill-item">Git & GitHub</span>
+                                    <span class="skill-item">Figma</span>
+                                    <span class="skill-item">Maven</span>
+                                    <span class="skill-item">Insomnia</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Processos e Documentação</h4>
+                                <div class="skill-items">
+                                    <span class="skill-item">Engenharia de Requisitos</span>
+                                    <span class="skill-item">Metodologias Ágeis</span>
+                                    <span class="skill-item">Diagramas UML</span>
+                                    <span class="skill-item">Histórias de Usuário</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="projetos-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Meus Projetos</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projetos-content">
+                    <p class="projetos-intro">
+                        Aqui estão alguns dos projetos que desenvolvi aplicando meus conhecimentos!
+                    </p>
+
+                    <div class="projetos-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/images/project-ecommerce.svg" alt="Website Portifólio" /> <!--TODO:TROCAR AQUI QUANOD TIVER PRONTO-->
+                                <div class="project-overlay">
+                                    <a href="https://github.com/viviangomesp/viviangomesp.github.io" target="_blank" class="project-github-btn" title="Ver no GitHub">
+                                        <i class="fab fa-github"></i>
+                                        <span>Ver no GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Website Portifólio</h3>
+                                <p>O website que estão vendo agora!</p>
+                                <div class="project-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/images/Banners - GitHub (@viviangomesp).png" alt="Pokédex" />
+                                <div class="project-overlay">
+                                    <a href="https://github.com/viviangomesp/Pokedex" target="_blank" class="project-github-btn" title="Ver no GitHub">
+                                        <i class="fab fa-github"></i>
+                                        <span>Ver no GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Pokédex</h3>
+                                <p>Aplicação WEB para busca e visualização de informações sobre Pokémons.</p>
+                                <div class="project-tech">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>PokéAPI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/images/Avalia-Amado.png" alt="Avalia Amado"/>
+                                <div class="project-overlay">
+                                    <a href="https://github.com/viviangomesp/Avalia-Amado" target="_blank" class="project-github-btn" title="Ver no GitHub">
+                                        <i class="fab fa-github"></i>
+                                        <span>Ver no GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Avalia Amado</h3>
+                                <p>Avalia Amado é uma API desenvolvida para o Núcleo Amado do Centro Universitário Jorge Amado, que permite aos usuários 
+                                    avaliar os serviços e eventos oferecidos, visando melhorias no atendimento, inclusão, diversidade e qualidade.</p>
+                                <div class="project-tech">
+                                    <span>Spring Boot</span>
+                                    <span>React</span>
+                                    <span>PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/images/Pass In.png" alt="Pass In" />
+                                <div class="project-overlay">
+                                    <a href="https://github.com/viviangomesp/Pass-in" target="_blank" class="project-github-btn" title="Ver no GitHub">
+                                        <i class="fab fa-github"></i>
+                                        <span>Ver no GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>Pass In</h3>
+                                <p>O Pass-in é uma aplicação para gestão de participantes em eventos presenciais.</p>
+                                <div class="project-tech">
+                                    <span>Spring Boot</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="assets/images/SolCoop.png" alt="SolCoop" />
+                                <div class="project-overlay">
+                                    <a href="https://github.com/viviangomesp/SolCoop" target="_blank" class="project-github-btn" title="Ver no GitHub">
+                                        <i class="fab fa-github"></i>
+                                        <span>Ver no GitHub</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>SolCoop</h3>
+                                <p>O SolCoop simula uma rede de energia cooperativa onde os usuários podem vender, 
+                                    comprar ou coinvestir em soluções de energia solar.</p>
+                                <div class="project-tech">
+                                    <span>Java</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <div class="projects-footer">
+                        <a href="https://github.com/viviangomesp" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-github"></i>
+                            <span>Veja mais no meu GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+         <section id="contato" class="contato-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Vamos conversar?</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contato-content">
+                    <div class="contato-form-wrapper">
+                        <form class="contato-form" id="contatoForm">
+                            <div class="form-group">
+                                <label for="name">Seu nome</label>
+                                <input type="text" id="name" name="name" required placeholder="Como posso te chamar?">
+                            </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Seu email</label>
+                                    <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Assunto</label>
+                                    <input type="text" id="subject" name="subject" required placeholder="Sobre o que gostaria de conversar?">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Sua mensagem</label>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Conte-me mais sobre sua ideia, projeto ou proposta..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">
+                                    <span>Enviar mensagem</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape-content">
+                <div class="rodape-text">
+                    <p>&copy; 2025 Vivian Gomes. Todos os direitos reservados.</p>
+                </div>
+                <div class="rodape-social">
+                    <a href="https://github.com/viviangomesp" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/viviangomesp" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:viviangomesps@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão de Voltar ao Topo -->
+    <button id="back-to-top" class="back-to-top" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+
 </body>
 </html>
