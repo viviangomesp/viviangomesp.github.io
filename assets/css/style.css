@@ -6,6 +6,23 @@
     box-sizing: border-box;
 }
 
+/* Previne elementos de quebrar o layout em mobile */
+img, 
+video, 
+iframe, 
+embed, 
+object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Melhora a legibilidade em dispositivos móveis */
+p, 
+h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 :root {
     /* Cores principais */
     --primary-color: #eea197;
@@ -72,6 +89,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* Previne zoom horizontal em dispositivos móveis */
+    overflow-x: hidden;
 }
 
 body {
@@ -273,6 +292,8 @@ body {
         opacity: 0;
         visibility: hidden;
         transition: all var(--transition-normal);
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
     }
     
     .nav-menu.active {
@@ -1154,111 +1175,374 @@ section {
         padding: 3rem 0;
     }
     
+    /* Hero Section */
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
+        min-height: 70vh;
     }
     
     .hero-buttons {
         justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .btn {
         padding: 0.75rem 1.25rem;
         font-size: 0.9rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
     }
     
+    .hero-name {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    
+    /* Imagem do perfil */
     .image-container {
         width: 250px;
         height: 250px;
+        margin: 0 auto;
     }
     
-    .floating-element {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
+    .floating-element img {
+        width: 16px;
+        height: 16px;
     }
     
+    /* Sobre */
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    /* Timeline */
     .timeline-item {
         padding-left: 3rem;
     }
     
     .timeline-marker {
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        left: -20px;
     }
     
     .education-timeline::before {
-        left: 22px;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .social-link {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-
-    
-    .divider-line {
-        background: linear-gradient(90deg, var(--primary-color), transparent, var(--primary-color));
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-name {
-        font-size: 2rem;
-    }
-    
-    .hero-title {
-        font-size: 1.2rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 250px;
-        justify-content: center;
-    }
-    
-    .image-container {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
+        left: 20px;
     }
     
     .timeline-content {
         padding: 1.5rem;
     }
     
-    .contact-card {
+    .timeline-date {
+        font-size: 0.8rem;
+    }
+    
+    /* Projetos */
+    .projetos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projetos-card {
+        height: auto;
+    }
+    
+    .projetos-image {
+        height: 180px;
+    }
+    
+    /* Contato */
+    .contato-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .social-link {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Formulário */
+    .contato-form {
         padding: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    /* Navegação móvel */
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Container ainda mais compacto */
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    section {
+        padding: 2.5rem 0;
+    }
+    
+    /* Hero Section */
+    .hero-content {
+        gap: 1.5rem;
+        min-height: 60vh;
+    }
+    
+    .hero-name {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+        line-height: 1.2;
+    }
+    
+    .hero-title {
+        font-size: 1rem;
+        height: auto;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Imagem ainda menor */
+    .image-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .floating-element img {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Sobre - Stats em coluna única */
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 280px;
+    }
+    
+    .stat-item {
+        padding: 1.25rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
+    /* Timeline mais compacta */
+    .timeline-item {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-marker {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+        left: -17px;
+    }
+    
+    .education-timeline::before {
+        left: 17px;
+    }
+    
+    .timeline-content {
+        padding: 1.25rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    /* Skills em timeline menores */
+    .timeline-skills span {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Projetos */
+    .projetos-card {
+        margin-bottom: 1rem;
+    }
+    
+    .projetos-image {
+        height: 160px;
+    }
+    
+    .projetos-content {
+        padding: 1.25rem;
+    }
+    
+    .projetos-content h3 {
+        font-size: 1.15rem;
+    }
+    
+    .projetos-tech span {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    /* Contato */
+    .contato-form {
+        padding: 1.25rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+    
+    /* Section headers */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-number {
+        font-size: 0.8rem;
+    }
+}
+
+/* Media query para dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-name {
+        font-size: 1.75rem;
+        line-height: 1.1;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .image-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .stat-item {
+        padding: 1rem 0.75rem;
+    }
+    
+    .timeline-content {
+        padding: 1rem;
+    }
+    
+    .projetos-content {
+        padding: 1rem;
+    }
+    
+    .contato-form {
+        padding: 1rem;
+    }
+}
+
+/* Melhorias gerais para touch */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px; /* Tamanho mínimo para touch */
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+    }
+    
+    .social-link {
+        min-height: 44px;
+    }
+    
+    /* Remover hover effects em dispositivos touch */
+    .projetos-card:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .skill-item:hover {
+        transform: none;
     }
 }
